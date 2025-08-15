@@ -15,6 +15,7 @@ with DAG(
         task_id="run_pyspark_job",
         name="pyspark-test-pod",
         namespace="test",  # Runs in namespace test
+        service_account_name="dagsvc"
         image="ghcr.io/vishnu-thirumangalath/docker-images/pyspark-dags-test:latest",
         cmds=["python", "/app/pyspark_test.py"],  # matches dockerfile (refer Dockerfile)
         get_logs=True,
