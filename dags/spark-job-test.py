@@ -14,7 +14,7 @@ with DAG(
     run_pyspark_job = KubernetesPodOperator(
         task_id="run_pyspark_job",
         name="pyspark-test-pod",
-        namespace="airflow",  # Runs in namespace test
+        namespace="test",  # Runs in namespace test
         image="ghcr.io/vishnu-thirumangalath/docker-images/pyspark-dags-test:latest",
         cmds=["python", "/app/pyspark_test.py"],  # matches dockerfile (refer Dockerfile)
         get_logs=True,
