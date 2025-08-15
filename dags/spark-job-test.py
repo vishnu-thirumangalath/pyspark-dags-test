@@ -19,4 +19,5 @@ with DAG(
         cmds=["python", "/app/pyspark_test.py"],  # matches dockerfile (refer Dockerfile)
         get_logs=True,
         is_delete_operator_pod=True,  # pod termination
+        kubernetes_conn_id="k8s_conn_id"
     )
