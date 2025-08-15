@@ -18,6 +18,6 @@ with DAG(
         image="ghcr.io/vishnu-thirumangalath/docker-images/pyspark-dags-test:latest",
         cmds=["python", "/app/pyspark_test.py"],  # matches dockerfile (refer Dockerfile)
         get_logs=True,
-        is_delete_operator_pod=True,  # pod termination
+        is_delete_operator_pod=False,  # pod termination
         kubernetes_conn_id="k8s_conn_id"
     )
