@@ -1,6 +1,20 @@
+import os
+import json
 from airflow import DAG
 from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import KubernetesPodOperator
 from datetime import datetime
+
+# Define the connection ID
+K8S_CONN_ID = "k8s_conn_id"
+
+# Create the AIRFLOW_CONN_* env var
+os.environ[f"AIRFLOW_CONN_{K8S_CONN_ID.upper()}"] = json.dumps({
+    "conn_type": "kubernetes",
+    "extra": {
+        "in_cluster": True,
+        "namespace": "test"  # Default namespace for this connection
+    }
+})
 
 # DAG definition
 with DAG(
