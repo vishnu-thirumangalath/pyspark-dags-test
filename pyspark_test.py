@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, expr
 
 # Create Spark session
-spark = SparkSession.builder.appName("TestFilter").getOrCreate()
+spark = SparkSession.builder.master("local").appName("TestFilter").getOrCreate()
 
 # Sample data
 data = [
