@@ -38,7 +38,6 @@ with DAG(
             "--conf", "spark.driver.bindAddress=0.0.0.0",
             "/app/pyspark_test.py",
         ],
-        ports=[{"containerPort": 9113, "name": "metrics"}],
         get_logs=True,
         is_delete_operator_pod=False,  # keep pod for debugging
     )
