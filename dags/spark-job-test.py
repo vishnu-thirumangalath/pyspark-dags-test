@@ -28,6 +28,7 @@ with DAG(
     run_pyspark_job = KubernetesPodOperator(
         task_id="run_pyspark_job",
         name="pyspark-test-pod",
+        labels={"app": "pyspark-job", "team": "data"},
         namespace="test",  # Runs in namespace test
         service_account_name="dagsvc",
         image="ghcr.io/vishnu-thirumangalath/docker-images/pyspark-dags-test:latest",
