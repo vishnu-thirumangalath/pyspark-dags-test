@@ -1,8 +1,9 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, expr
+import time
 
 # Create Spark session
-spark = SparkSession.builder.master("local").appName("TestFilter").getOrCreate()
+spark = SparkSession.builder.appName("TestFilter").getOrCreate()
 
 # Sample data
 data = [
@@ -46,3 +47,5 @@ log_types_list_2 = ["Booking", "Cancel", "Prebooking", "Hey"]
 filtered_df_2 = filter_logs(log_types_list_2)
 print("✅ Test 2 Output:")
 filtered_df_2.show()
+
+time.sleep(20)
