@@ -9,6 +9,9 @@ ENV PATH=$JAVA_HOME/bin:$PATH
 
 RUN pip install --no-cache-dir pyspark
 
+RUN mkdir -p /opt/spark/conf
+COPY metrics.properties /opt/spark/conf/metrics.properties
+
 COPY pyspark_test.py /app/pyspark_test.py
 WORKDIR /app
 
