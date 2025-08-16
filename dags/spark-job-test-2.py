@@ -1,3 +1,9 @@
+import os
+import json
+from airflow import DAG
+from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import KubernetesPodOperator
+from datetime import datetime
+
 K8S_CONN_ID = "k8s_conn_id"
 
 # Create the AIRFLOW_CONN_* env var
