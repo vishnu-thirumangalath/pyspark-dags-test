@@ -52,7 +52,7 @@ filtered_df_2 = filter_logs(["Booking", "Cancel", "Prebooking", "Hey"])
 filtered_df_2.show()
 
 logger.info("Sleeping for 20 seconds to keep pod alive for Prometheus scrape...")
-time.sleep(20)
+time.sleep(60)
 
 logger.info("Job complete. Shutting down Spark.")
 spark.stop()
