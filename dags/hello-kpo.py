@@ -21,7 +21,9 @@ with DAG(
         cmds=["sh", "-c"],
         arguments=[
             "mkdir -p /airflow/xcom/ && "
-            "echo '\"hello world\"' > /airflow/xcom/return.json"
+            "echo '\"hello world\"' > /airflow/xcom/return.json;"
+            "echo 'log: wrote xcom'; "
+            "sleep 30"
         ],
         do_xcom_push=True,          # enable sidecar that collects /airflow/xcom/return.json
         in_cluster=True,
