@@ -17,7 +17,7 @@ os.environ[f"AIRFLOW_CONN_{K8S_CONN_ID.upper()}"] = json.dumps({
 
 # DAG definition
 with DAG(
-    dag_id="run_pyspark_test(2)",
+    dag_id="run_pyspark_test_2",
     start_date=datetime(2025, 8, 15),
     schedule_interval=None,  # Run manually for now
     catchup=False,
@@ -25,8 +25,8 @@ with DAG(
 ) as dag:
 
     run_pyspark_job = KubernetesPodOperator(
-        task_id="run_pyspark_job(2)",
-        name="pyspark-test-pod(2)",
+        task_id="run_pyspark_job_2",
+        name="pyspark-test-pod_2",
         labels={"app": "pyspark-job", "team": "data"},
         namespace="test",  # Runs in namespace test
         service_account_name="dagsvc",
