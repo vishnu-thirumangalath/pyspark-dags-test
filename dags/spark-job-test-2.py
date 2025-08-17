@@ -30,7 +30,7 @@ with DAG(
         namespace="test",
         service_account_name="dagsvc",
         image="ghcr.io/vishnu-thirumangalath/docker-images/pyspark-dags-test:latest",
-        cmds=["python", "pyspark_test.py"],
+        cmds=["/opt/spark/bin/spark-submit"],
         arguments=[
             "--master", "local[*]",  # Local mode for test
             "--conf", "spark.metrics.conf=/opt/spark/conf/metrics.properties",
